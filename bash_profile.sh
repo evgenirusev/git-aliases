@@ -11,7 +11,7 @@ if [ -e ~/.bashrc -a ! -e ~/.bash_profile -a ! -e ~/.bash_login -a ! -e ~/.profi
 fi
 
 function co() {
-	git commit -m "$1"
+	git commit -m "SB-$1"
 }
 
 function s() {
@@ -50,6 +50,10 @@ function po() {
 	git pull origin $1
 }
 
+function pu() {
+	git push
+}
+
 function clone() {
 	git clone $1
 }
@@ -66,7 +70,7 @@ function i() {
 	npm install
 }
 
-function bd() {
+function b() {
 	npm run build:debug
 }
 
@@ -74,6 +78,14 @@ function br() {
 	npm run build:release
 }
 
-function watch() {
+function tw() {
 	npm run test -- $1 --watch
+}
+
+function bw() {
+	npm run build:watch
+}
+
+function re() {
+	(git clean -fdx && npm install && npm run build:debug)
 }
